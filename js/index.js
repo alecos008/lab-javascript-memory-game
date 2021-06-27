@@ -38,14 +38,23 @@ window.addEventListener('load', (event) => {
     `;
   });
 
+  const backElements = document.getElementsByClassName('back')
+  const frontElements = document.getElementsByClassName('front');
+  console.dir(frontElements, backElements)
+
+
+
   // Add all the divs to the HTML
   document.querySelector('#memory-board').innerHTML = html;
 
   // Bind the click event of each element to a function
   document.querySelectorAll('.card').forEach((card) => {
     card.addEventListener('click', () => {
-      // TODO: write some code here
-      console.log(`Card clicked: ${card}`);
+      card.innerHTML = `<div class="card turned" data-card-name="ironman">
+      <div class="back" name="ironman.jpg"></div>
+      <div class="front" style="background: url(img/ironman.jpg) no-repeat"></div>
+    </div>`
+          console.log(`Card clicked: ${card}`);
     });
   });
 });
